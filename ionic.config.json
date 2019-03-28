@@ -1,0 +1,8 @@
+{
+  "name": "todo-assessment-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "app_id": ""
+}
