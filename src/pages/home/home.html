@@ -15,14 +15,28 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let todo of todoList; let i = index" >
-      <ion-checkbox start color="primary" checked="todo.done" (click)="toggleTodoDone(i)"></ion-checkbox>
-      <ion-label>{{ todo.name }}</ion-label>
-    </ion-item>
+    Todos
+    <div *ngFor="let todo of todoList; let i = index" >
+      <ion-item *ngIf="todoList.length === 0" >
+        <ion-label>No todo added yet</ion-label>
+      </ion-item>
+      <ion-item *ngIf="todoList.length > 0">
+        <ion-checkbox start color="primary" [checked]="todo.done" (click)="toggleTodo(i)"></ion-checkbox>
+        <ion-label>{{ todo.name }}</ion-label>
+      </ion-item>
+    </div>
     <br>
     Done todos
-    <ion-item *ngFor="let todoDone of todoDoneList" >
-      <ion-label>{{ todoDone.name }}</ion-label>
-    </ion-item>
+    <div *ngFor="let todoDone of todoDoneList; let i = index" >
+      <ion-item-sliding #item>
+        <ion-item>
+            <ion-checkbox start color="primary" [checked]="todoDone.done" (click)="toggleTodoDone(i)"></ion-checkbox>
+          <ion-label>{{ todoDone.name }}</ion-label>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteTodo(i)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
   </ion-list>
 </ion-content>

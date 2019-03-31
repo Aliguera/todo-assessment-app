@@ -28,22 +28,9 @@ export class StorageProvider {
     window.localStorage.setItem('todos', todoJSON);
   }
 
-  getTodos() {
-    if(window.localStorage.getItem("todos")) {
-      //Get todo done list and todo undone list
-      var todoDoneList = [];
-      var todoUndoneList = [];
-
-      let todoListStorage = JSON.parse(window.localStorage.getItem("todos"));
-      todoListStorage.forEach(todo => {
-        if(todo.done) {
-          todoDoneList.push(todo);
-        } else {
-          todoUndoneList.push(todo);
-        }
-      });
-
-      return {todoDoneList: todoDoneList, todoUndoneList: todoUndoneList}
+  getTodos(key) {
+    if(window.localStorage.getItem(key)) {
+      return JSON.parse(window.localStorage.getItem(key));
     } else {
       return [];
     }
@@ -53,9 +40,10 @@ export class StorageProvider {
     window.localStorage.setItem('todos', JSON.stringify(todosList));
   }
 
-  deleteTodo(index, todo) {
+  deleteTodo(index) {
     let todoListStorage = JSON.parse(window.localStorage.getItem("todos"));
-    todoListStorage.slice(index, 1); 
+    todoListStorage.splice(index, 1);
+    this.saveTodos(todoListStorage);
   }
 
 }

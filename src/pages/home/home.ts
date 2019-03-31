@@ -14,6 +14,7 @@ export class HomePage {
 
   todoList: any = [];
   todoDoneList: any = [];
+  allTodos: any = [];
 
   constructor(public navCtrl: NavController,
               private modalCtrl: ModalController,
@@ -38,9 +39,17 @@ export class HomePage {
 
   //Get todos from storage
   getTodos() {
-    let allTodos: any = this.storageProvider.getTodos();
-    this.todoList = allTodos.todoUndoneList;
-    this.todoDoneList = allTodos.todoDoneList;
+    let allTodos: any = this.storageProvider.getTodos("todos");
+    this.allTodos = allTodos;
+    this.todoList = [];
+    this.todoDoneList = [];
+    allTodos.forEach(todo => {
+      if(todo.done) {
+        this.todoDoneList.push(todo);
+      } else {
+        this.todoList.push(todo);
+      }
+    });
   }
 
   //Save todos
@@ -48,9 +57,27 @@ export class HomePage {
     this.storageProvider.saveTodos(todos);
   }
 
-  toggleTodoDone(i) {
-    this.todoList[i].done = true;
-    this.saveTodos(this.todoList);
+  //Togle todo done variable for todos list
+  toggleTodo(index) {
+    this.todoList[index].done = !this.todoList[index].done;
+    let concatTodos = this.todoList.concat(this.todoDoneList);
+    this.saveTodos(concatTodos);
+    this.getTodos();
+  }
+
+  //Togle todo done variable for todos done list
+  toggleTodoDone(index) {
+    this.todoDoneList[index].done = !this.todoDoneList[index].done;
+    let concatTodos = this.todoList.concat(this.todoDoneList);
+    this.saveTodos(concatTodos);
+    this.getTodos();
+  }
+
+  //Dele todo done item
+  deleteTodo(index) {
+    this.todoDoneList.splice(index, 1);
+    let concatTodos = this.todoList.concat(this.todoDoneList);
+    this.saveTodos(concatTodos);
     this.getTodos();
   }
 
