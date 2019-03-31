@@ -5,6 +5,7 @@ import { CreateTodoPage } from '../create-todo/create-todo';
 
 //Providers
 import { StorageProvider } from './../../providers/storage/storage';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +19,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
               private modalCtrl: ModalController,
-              private storageProvider: StorageProvider) {
+              private storageProvider: StorageProvider,
+              private alertCtrl: AlertController) {
 
   }
 
@@ -79,6 +81,29 @@ export class HomePage {
     let concatTodos = this.todoList.concat(this.todoDoneList);
     this.saveTodos(concatTodos);
     this.getTodos();
+  }
+
+  presentAlert(index) {
+    let alert = this.alertCtrl.create({
+      title: 'Are you sure?',
+      subTitle: 'If you tap Ok you will not be able to see this Todo again',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            return;
+          }
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+            this.deleteTodo(index);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

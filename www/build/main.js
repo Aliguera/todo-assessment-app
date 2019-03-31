@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 101:
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ webpackJsonp([1],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_view_controller__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_storage_storage__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_storage_storage__ = __webpack_require__(78);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,7 +43,7 @@ var CreateTodoPage = /** @class */ (function () {
     };
     CreateTodoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-create-todo',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/create-todo/create-todo.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons start>\n      <button ion-button (click)="closeCreateTodoModal()">\n        <ion-icon slot="icon-only" name="close"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Create Todo</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-label>Todo name</ion-label>\n    <ion-input [(ngModel)]="todo.name"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label>Todo description</ion-label>\n    <ion-textarea [(ngModel)]="todo.description" ></ion-textarea>\n  </ion-item>\n  <ion-item>\n    <ion-label>Todo Date</ion-label>\n    <ion-datetime [(ngModel)]="todo.date" display-format="MMM DD, YYYY HH:mm"></ion-datetime>\n  </ion-item>\n  <button (click)="createTodo()" margin-top ion-button full solid color="primary">Submit</button>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/create-todo/create-todo.html"*/,
+            selector: 'page-create-todo',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/create-todo/create-todo.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons start>\n      <button ion-button (click)="closeCreateTodoModal()">\n        <ion-icon slot="icon-only" name="close"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Create Todo</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-label>Todo name</ion-label>\n    <ion-input [(ngModel)]="todo.name"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label>Todo description</ion-label>\n    <ion-textarea [(ngModel)]="todo.description" ></ion-textarea>\n  </ion-item>\n  <ion-item>\n    <ion-label>Todo Date</ion-label>\n    <ion-datetime [(ngModel)]="todo.date" display-format="DD MM YYYY"></ion-datetime>\n  </ion-item>\n  <button (click)="createTodo()" margin-top ion-button full solid color="primary">Submit</button>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/create-todo/create-todo.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
@@ -57,7 +57,7 @@ var CreateTodoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 113:
+/***/ 114:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -70,7 +70,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 113;
+webpackEmptyAsyncContext.id = 114;
 
 /***/ }),
 
@@ -106,9 +106,10 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__create_todo_create_todo__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_storage_storage__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__create_todo_create_todo__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_storage_storage__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_alert_alert_controller__ = __webpack_require__(61);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -124,11 +125,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 //Providers
 
+
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, modalCtrl, storageProvider) {
+    function HomePage(navCtrl, modalCtrl, storageProvider, alertCtrl) {
         this.navCtrl = navCtrl;
         this.modalCtrl = modalCtrl;
         this.storageProvider = storageProvider;
+        this.alertCtrl = alertCtrl;
         this.todoList = [];
         this.todoDoneList = [];
         this.allTodos = [];
@@ -186,14 +189,39 @@ var HomePage = /** @class */ (function () {
         this.saveTodos(concatTodos);
         this.getTodos();
     };
+    HomePage.prototype.presentAlert = function (index) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: 'Are you sure?',
+            subTitle: 'If you tap Ok you will not be able to see this Todo again',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        return;
+                    }
+                },
+                {
+                    text: 'Ok',
+                    handler: function () {
+                        _this.deleteTodo(index);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-toolbar>\n        <ion-title>\n            Welcome to Alick\'s todo app\n        </ion-title>\n        <ion-buttons end>\n          <button ion-button (click)="createTodo()">\n            <ion-icon slot="icon-only" name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-toolbar>\n    </ion-navbar>\n  </ion-header>\n\n<ion-content padding>\n  <ion-list>\n    Todos\n    <div *ngFor="let todo of todoList; let i = index" >\n      <ion-item *ngIf="todoList.length === 0" >\n        <ion-label>No todo added yet</ion-label>\n      </ion-item>\n      <ion-item *ngIf="todoList.length > 0">\n        <ion-checkbox start color="primary" [checked]="todo.done" (click)="toggleTodo(i)"></ion-checkbox>\n        <ion-label>{{ todo.name }}</ion-label>\n      </ion-item>\n    </div>\n    <br>\n    Done todos\n    <div *ngFor="let todoDone of todoDoneList; let i = index" >\n      <ion-item-sliding #item>\n        <ion-item>\n            <ion-checkbox start color="primary" [checked]="todoDone.done" (click)="toggleTodoDone(i)"></ion-checkbox>\n          <ion-label>{{ todoDone.name }}</ion-label>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="deleteTodo(i)">Delete</button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </div>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-toolbar>\n        <ion-title>\n            Welcome to Alick\'s todo app\n        </ion-title>\n        <ion-buttons end>\n          <button ion-button (click)="createTodo()">\n            <ion-icon slot="icon-only" name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-toolbar>\n    </ion-navbar>\n  </ion-header>\n\n<ion-content padding>\n  <ion-list>\n    \n    <!-- Todo list -->\n    <ion-label>Todos list ({{ todoList.length }})</ion-label>\n    <div *ngFor="let todo of todoList; let i = index">\n      <ion-item *ngIf="todoList.length == 0">\n        <ion-label>No todo added yet</ion-label>\n      </ion-item>\n      <ion-item *ngIf="todoList.length > 0">\n        <ion-checkbox start color="primary" [checked]="todo.done" (click)="toggleTodo(i)"></ion-checkbox>\n        <ion-label>{{ todo.name }}</ion-label>\n        <ion-label end>{{ todo.date }}</ion-label>\n      </ion-item>\n    </div>\n    <br>\n\n    <!-- Done todo list -->\n    <ion-label>Done todos list ({{ todoDoneList.length }})</ion-label>\n    <div *ngFor="let todoDone of todoDoneList; let i = index" >\n      <ion-item-sliding #item>\n        <ion-item>\n            <ion-checkbox start color="primary" [checked]="todoDone.done" (click)="toggleTodoDone(i)"></ion-checkbox>\n            <ion-label class="todo-done-label">{{ todoDone.name }}</ion-label>\n            <ion-label end>{{ todoDone.date }}</ion-label>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="presentAlert(i)">Delete</button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </div>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__["a" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__["a" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_storage_storage__["a" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_storage_storage__["a" /* StorageProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__["a" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_storage_storage__["a" /* StorageProvider */],
+            __WEBPACK_IMPORTED_MODULE_5_ionic_angular_components_alert_alert_controller__["a" /* AlertController */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -226,8 +254,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_create_todo_create_todo__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_storage_storage__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_create_todo_create_todo__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_storage_storage__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__(156);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -331,7 +359,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 77:
+/***/ 78:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -390,10 +418,9 @@ var StorageProvider = /** @class */ (function () {
     };
     StorageProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClientModule */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClientModule */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClientModule */]])
     ], StorageProvider);
     return StorageProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=storage.js.map
