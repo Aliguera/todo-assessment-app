@@ -1,9 +1,26 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="closeCreateTodoModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Create Todo</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-item>
+    <ion-label>Todo name</ion-label>
+    <ion-input [(ngModel)]="todo.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Todo description</ion-label>
+    <ion-textarea [(ngModel)]="todo.description" ></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>Todo Date</ion-label>
+    <ion-datetime [(ngModel)]="todo.date" display-format="MMM DD, YYYY HH:mm"></ion-datetime>
+  </ion-item>
+  <button (click)="createTodo()" margin-top ion-button full solid color="primary">Submit</button>
 </ion-content>

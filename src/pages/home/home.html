@@ -1,9 +1,9 @@
 <ion-header>
     <ion-navbar>
       <ion-toolbar>
-          <ion-title>
-              Welcome to Alicks todo app
-            </ion-title>
+        <ion-title>
+            Welcome to Alick's todo app
+        </ion-title>
         <ion-buttons end>
           <button ion-button (click)="createTodo()">
             <ion-icon slot="icon-only" name="add"></ion-icon>
@@ -15,8 +15,14 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let todo of todoList" >
+    <ion-item *ngFor="let todo of todoList; let i = index" >
+      <ion-checkbox start color="primary" checked="todo.done" (click)="toggleTodoDone(i)"></ion-checkbox>
       <ion-label>{{ todo.name }}</ion-label>
+    </ion-item>
+    <br>
+    Done todos
+    <ion-item *ngFor="let todoDone of todoDoneList" >
+      <ion-label>{{ todoDone.name }}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

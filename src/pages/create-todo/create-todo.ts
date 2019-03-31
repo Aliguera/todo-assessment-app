@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 
-/**
- * Generated class for the CreateTodoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+//Import todo model
+import { Todo } from './../../models/todo';
+
+//Prividers
+import { StorageProvider } from './../../providers/storage/storage';
 
 @IonicPage()
 @Component({
@@ -15,11 +15,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreateTodoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  todo: Todo = {id: new Date().getTime(), name: "", description: "", date: new Date(), done: false};
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public storageProvider: StorageProvider,
+              public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateTodoPage');
+  }
+
+  createTodo() {
+    this.storageProvider.createTodo(this.todo.id, this.todo);
+    this.viewCtrl.dismiss();
+  }
+
+  closeCreateTodoModal() {
+    this.viewCtrl.dismiss();
   }
 
 }
