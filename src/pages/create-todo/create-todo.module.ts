@@ -9,6 +9,5 @@ import { CreateTodoPage } from './create-todo';
   imports: [
     IonicPageModule.forChild(CreateTodoPage),
   ],
-  exports: []
 })
 export class CreateTodoPageModule {}

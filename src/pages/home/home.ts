@@ -106,4 +106,8 @@ export class HomePage {
     alert.present();
   }
 
+  seeTodoDetails(index) {
+    
+  }
+
 }

@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([2],{
 
 /***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -80,6 +80,10 @@ webpackEmptyAsyncContext.id = 114;
 var map = {
 	"../pages/create-todo/create-todo.module": [
 		276,
+		1
+	],
+	"../pages/todo-details/todo-details.module": [
+		277,
 		0
 	]
 };
@@ -212,9 +216,11 @@ var HomePage = /** @class */ (function () {
         });
         alert.present();
     };
+    HomePage.prototype.seeTodoDetails = function (index) {
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-toolbar>\n        <ion-title>\n            Welcome to Alick\'s todo app\n        </ion-title>\n        <ion-buttons end>\n          <button ion-button (click)="createTodo()">\n            <ion-icon slot="icon-only" name="add"></ion-icon>\n          </button>\n        </ion-buttons>\n      </ion-toolbar>\n    </ion-navbar>\n  </ion-header>\n\n<ion-content padding>\n  <ion-list>\n    \n    <!-- Todo list -->\n    <ion-label>Todos list ({{ todoList.length }})</ion-label>\n    <div *ngFor="let todo of todoList; let i = index">\n      <ion-item *ngIf="todoList.length == 0">\n        <ion-label>No todo added yet</ion-label>\n      </ion-item>\n      <ion-item *ngIf="todoList.length > 0">\n        <ion-checkbox start color="primary" [checked]="todo.done" (click)="toggleTodo(i)"></ion-checkbox>\n        <ion-label>{{ todo.name }}</ion-label>\n        <ion-label end>{{ todo.date }}</ion-label>\n      </ion-item>\n    </div>\n    <br>\n\n    <!-- Done todo list -->\n    <ion-label>Done todos list ({{ todoDoneList.length }})</ion-label>\n    <div *ngFor="let todoDone of todoDoneList; let i = index" >\n      <ion-item-sliding #item>\n        <ion-item>\n            <ion-checkbox start color="primary" [checked]="todoDone.done" (click)="toggleTodoDone(i)"></ion-checkbox>\n            <ion-label class="todo-done-label">{{ todoDone.name }}</ion-label>\n            <ion-label end>{{ todoDone.date }}</ion-label>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="presentAlert(i)">Delete</button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </div>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n        Alick\'s Todo List\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="createTodo()">\n        <ion-icon slot="icon-only" name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    \n    <!-- Todo list -->\n    <ion-label>Todos list ({{ todoList.length }})</ion-label>\n    <div *ngFor="let todo of todoList; let i = index">\n      <ion-item-sliding #item *ngIf="todoList.length > 0" >\n        <ion-item *ngIf="todoList.length == 0">\n          <ion-label>No todo added yet</ion-label>\n        </ion-item>\n        <ion-item *ngIf="todoList.length > 0">\n          <ion-checkbox start color="primary" [checked]="todo.done" (click)="toggleTodo(i)"></ion-checkbox>\n          <ion-label>{{ todo.name }}</ion-label>\n          <ion-label end>{{ todo.date }}</ion-label>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="info" (click)="seeTodoDetails(i)">View</button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </div>\n    <br>\n\n    <!-- Done todo list -->\n    <ion-label>Done todos list ({{ todoDoneList.length }})</ion-label>\n    <div *ngFor="let todoDone of todoDoneList; let i = index" >\n      <ion-item *ngIf="todoDoneList.length == 0">\n        <ion-label>No todo done yet</ion-label>\n      </ion-item>\n      <ion-item-sliding #item *ngIf="todoDoneList.length > 0" >\n        <ion-item>\n            <ion-checkbox start color="primary" [checked]="todoDone.done" (click)="toggleTodoDone(i)"></ion-checkbox>\n            <ion-label class="todo-done-label">{{ todoDone.name }}</ion-label>\n            <ion-label end>{{ todoDone.date }}</ion-label>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="info" (click)="seeTodoDetails(i)">View</button>\n          <button ion-button color="danger" (click)="presentAlert(i)">Delete</button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </div>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__["a" /* ModalController */],
@@ -287,7 +293,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/create-todo/create-todo.module#CreateTodoPageModule', name: 'CreateTodoPage', segment: 'create-todo', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/create-todo/create-todo.module#CreateTodoPageModule', name: 'CreateTodoPage', segment: 'create-todo', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/todo-details/todo-details.module#TodoDetailsPageModule', name: 'TodoDetailsPage', segment: 'todo-details', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_9__angular_common_http__["a" /* HttpClientModule */]
