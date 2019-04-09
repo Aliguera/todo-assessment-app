@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-buttons start>
       <button ion-button (click)="closeCreateTodoModal()">
-        <ion-icon slot="icon-only" name="close"></ion-icon>
+        <ion-icon class="close-icon" slot="icon-only" name="close"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>Create Todo</ion-title>
@@ -20,7 +20,7 @@
   </ion-item>
   <ion-item>
     <ion-label>Todo Date</ion-label>
-    <ion-datetime [(ngModel)]="todo.date" display-format="DD MM YYYY"></ion-datetime>
+    <ion-datetime [(ngModel)]="todo.date" min="2019" max="2100" display-format="DD MM YYYY"></ion-datetime>
   </ion-item>
   <button (click)="createTodo()" margin-top ion-button full solid color="primary">Submit</button>
 </ion-content>

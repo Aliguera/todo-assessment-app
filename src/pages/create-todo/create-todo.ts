@@ -14,7 +14,6 @@ import { StorageProvider } from './../../providers/storage/storage';
   templateUrl: 'create-todo.html',
 })
 export class CreateTodoPage {
-
   todo: Todo = {id: new Date().getTime(), name: "", description: "", date: new Date(), done: false};
 
   constructor(public navCtrl: NavController, 
@@ -23,17 +22,30 @@ export class CreateTodoPage {
               public viewCtrl: ViewController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateTodoPage');
-  }
-
   createTodo() {
+    this.todo.date = this.formatDate(this.todo.date);
     this.storageProvider.createTodo(this.todo.id, this.todo);
     this.viewCtrl.dismiss();
   }
 
   closeCreateTodoModal() {
     this.viewCtrl.dismiss();
+  }
+
+  formatDate(inputDate) {
+    let date = new Date(inputDate);
+    let day:any = date.getDate();
+    let month:any = date.getMonth() + 1;
+
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+
+    return day + '/' + month + '/' + date.getFullYear();
   }
 
 }

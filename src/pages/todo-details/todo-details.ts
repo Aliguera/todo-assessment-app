@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the TodoDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+//Models
+import { Todo } from './../../models/todo';
 
 @IonicPage()
 @Component({
@@ -14,12 +10,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'todo-details.html',
 })
 export class TodoDetailsPage {
+  todo: any = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TodoDetailsPage');
+  ionViewWillEnter(){
+    this.todo = this.navParams.get('data');
+    console.log(this.todo);
   }
 
 }

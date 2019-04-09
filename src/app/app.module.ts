@@ -5,16 +5,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+
+//Page
 import { HomePage } from '../pages/home/home';
 import { CreateTodoPage } from '../pages/create-todo/create-todo';
+import { TodoDetailsPage } from './../pages/todo-details/todo-details';
+
+//Providers
 import { StorageProvider } from '../providers/storage/storage';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    CreateTodoPage
+    CreateTodoPage,
+    TodoDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
   entryComponents: [
     MyApp,
     HomePage,
-    CreateTodoPage
+    CreateTodoPage,
+    TodoDetailsPage
   ],
   providers: [
     StatusBar,

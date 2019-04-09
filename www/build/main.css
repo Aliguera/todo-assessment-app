@@ -25692,6 +25692,73 @@ ion-navbar.toolbar {
   min-height: 46px;
 }
 
-page-home .todo-done-label {
+page-create-todo .close-icon {
+  font-size: 25px;
+}
+
+page-home .add-todo-icon {
+  font-size: 25px;
+}
+
+page-home .div-list {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+page-home .done-list-label {
+  color: green;
+  font-family: arial sans-serif;
+  font-size: 17px;
   text-decoration: line-through;
+}
+
+page-home .done-list-label-title {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: arial sans-serif;
+  color: green;
+}
+
+page-home .todo-list-label {
+  color: red;
+  font-family: arial sans-serif;
+  font-size: 17px;
+}
+
+page-home .todo-list-label-title {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: arial sans-serif;
+  color: red;
+}
+
+page-home ion-item-sliding {
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+ion-content {
+  background-image: url("../../assets/imgs/bg.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+page-todo-details div.todo-content {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+page-todo-details p {
+  font-family: arial sans-serif;
+  font-size: 20px !important;
+  color: white !important;
+}
+
+page-todo-details small {
+  font-size: 14px;
+  color: white;
 }

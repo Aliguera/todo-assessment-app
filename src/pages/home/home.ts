@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
+
+//Pages
 import { CreateTodoPage } from '../create-todo/create-todo';
+import { TodoDetailsPage } from './../todo-details/todo-details';
 
 //Providers
 import { StorageProvider } from './../../providers/storage/storage';
@@ -106,7 +109,17 @@ export class HomePage {
     alert.present();
   }
 
-  seeTodoDetails(index) {
+  seeTodoDetails(index, list) {
+    var data;
+    console.log("List type: ", list);
+
+    if (list === "todoList") {
+      data = this.todoList[index];
+    } else {
+      data = this.todoDoneList[index];
+    }
+
+    this.navCtrl.push(TodoDetailsPage, {data:data});
     
   }
 

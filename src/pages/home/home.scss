@@ -1,5 +1,53 @@
 page-home {
-    .todo-done-label {
+
+    .add-todo-icon {
+        font-size: 25px;
+    }
+
+    .div-list {
+        margin-top: 30px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgba(0,0,0,0.7);
+    }
+
+    .done-list-label {
+        color: green;
+        font-family: arial sans-serif;
+        font-size: 17px;
         text-decoration: line-through;
     }
+
+    .done-list-label-title {
+        font-weight: bold;
+        font-size: 20px;
+        font-family: arial sans-serif;
+        color: green;
+    }
+
+    .todo-list-label {
+        color: red;
+        font-family: arial sans-serif;
+        font-size: 17px;
+    }
+
+    .todo-list-label-title {
+        font-weight: bold;
+        font-size: 20px;
+        font-family: arial sans-serif;
+        color: red;
+    }
+
+    ion-item-sliding {
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+
+
+}
+
+ion-content{ 
+    background-image: url('../../assets/imgs/bg.jpg');
+    background-position: center center;
+    background-size: cover;
 }
