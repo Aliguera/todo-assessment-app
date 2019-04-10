@@ -6,10 +6,17 @@ page-todo-details {
         background-color: rgba(0,0,0,0.7) !important;
     }
 
-    p {
+    p, h3 {
         font-family: arial sans-serif;
-        font-size: 20px !important;
         color: white !important;
+    }
+
+    p {
+        font-size: 20px !important;
+    }
+
+    h3 {
+        font-size: 25px !important;
     }
 
     small {

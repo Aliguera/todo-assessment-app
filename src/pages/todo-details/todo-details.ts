@@ -10,7 +10,7 @@ import { Todo } from './../../models/todo';
   templateUrl: 'todo-details.html',
 })
 export class TodoDetailsPage {
-  todo: any = {};
+  todo: any = {date: {}};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

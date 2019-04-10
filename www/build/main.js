@@ -43,22 +43,27 @@ var CreateTodoPage = /** @class */ (function () {
         var date = new Date(inputDate);
         var day = date.getDate();
         var month = date.getMonth() + 1;
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var time = hours + ":" + minutes;
         if (day < 10) {
             day = '0' + day;
         }
         if (month < 10) {
             month = '0' + month;
         }
-        return day + '/' + month + '/' + date.getFullYear();
+        return { date: day + '/' + month + '/' + date.getFullYear(), time: time };
     };
     CreateTodoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-create-todo',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/create-todo/create-todo.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons start>\n      <button ion-button (click)="closeCreateTodoModal()">\n        <ion-icon class="close-icon" slot="icon-only" name="close"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Create Todo</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-label>Todo name</ion-label>\n    <ion-input [(ngModel)]="todo.name"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label>Todo description</ion-label>\n    <ion-textarea [(ngModel)]="todo.description" ></ion-textarea>\n  </ion-item>\n  <ion-item>\n    <ion-label>Todo Date</ion-label>\n    <ion-datetime [(ngModel)]="todo.date" min="2019" max="2100" display-format="DD MM YYYY"></ion-datetime>\n  </ion-item>\n  <button (click)="createTodo()" margin-top ion-button full solid color="primary">Submit</button>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/create-todo/create-todo.html"*/,
+            selector: 'page-create-todo',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/create-todo/create-todo.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons start>\n      <button ion-button (click)="closeCreateTodoModal()">\n        <ion-icon class="close-icon" slot="icon-only" name="close"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Create Todo</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-label>Todo name</ion-label>\n    <ion-input [(ngModel)]="todo.name"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label>Todo description</ion-label>\n    <ion-textarea [(ngModel)]="todo.description" ></ion-textarea>\n  </ion-item>\n  <ion-item>\n    <ion-label>Todo Date</ion-label>\n    <ion-datetime [(ngModel)]="todo.date" min="2019" max="2100" displayFormat="DD MM YYYY HH:mm"></ion-datetime>\n  </ion-item>\n  <button (click)="createTodo()" margin-top ion-button full solid color="primary">Submit</button>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/create-todo/create-todo.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_storage_storage__["a" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_storage_storage__["a" /* StorageProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_view_controller__["a" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_view_controller__["a" /* ViewController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_storage_storage__["a" /* StorageProvider */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_view_controller__["a" /* ViewController */]])
     ], CreateTodoPage);
     return CreateTodoPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=create-todo.js.map
@@ -87,7 +92,7 @@ var TodoDetailsPage = /** @class */ (function () {
     function TodoDetailsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.todo = {};
+        this.todo = { date: {} };
     }
     TodoDetailsPage.prototype.ionViewWillEnter = function () {
         this.todo = this.navParams.get('data');
@@ -95,11 +100,12 @@ var TodoDetailsPage = /** @class */ (function () {
     };
     TodoDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-todo-details',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/todo-details/todo-details.html"*/'<!--\n  Generated template for the TodoDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>{{ todo.name }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="todo-content">\n    <p>{{ todo.description }}</p>\n    <small>{{ todo.date }}</small>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/todo-details/todo-details.html"*/,
+            selector: 'page-todo-details',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/todo-details/todo-details.html"*/'<!--\n  Generated template for the TodoDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>Todo Details</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="todo-content">\n    <h3>{{ todo.name }}</h3>\n    <p>{{ todo.description }}</p>\n    <small>{{ todo.date.date }}</small><br>\n    <small>{{ todo.date.time }}</small>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/todo-details/todo-details.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object])
     ], TodoDetailsPage);
     return TodoDetailsPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=todo-details.js.map
@@ -281,14 +287,12 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n        Alick\'s Todo List\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="createTodo()">\n        <ion-icon class="add-todo-icon" slot="icon-only" name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    \n    <!-- Todo list -->\n    <div class="div-list">\n      <ion-label class="todo-list-label-title">Todos list ({{ todoList.length }})</ion-label>\n      <div *ngFor="let todo of todoList; let i = index">\n        <ion-item-sliding #item *ngIf="todoList.length > 0" >\n          <ion-item *ngIf="todoList.length == 0">\n            <ion-label>No todo added yet</ion-label>\n          </ion-item>\n          <ion-item *ngIf="todoList.length > 0">\n            <ion-checkbox start color="primary" [checked]="todo.done" (click)="toggleTodo(i)"></ion-checkbox>\n            <ion-label class="todo-list-label">{{ todo.name }}</ion-label>\n            <ion-label class="todo-list-label" end>{{ todo.date }}</ion-label>\n          </ion-item>\n          <ion-item-options side="right">\n            <button ion-button color="info" (click)="seeTodoDetails(i, \'todoList\')">View</button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </div>\n    </div>\n    \n    <br>\n\n    <!-- Done todo list -->\n    <div class="div-list">\n      <ion-label class="done-list-label-title">Done todos list ({{ todoDoneList.length }})</ion-label>\n      <div *ngFor="let todoDone of todoDoneList; let i = index" >\n        <ion-item *ngIf="todoDoneList.length == 0">\n          <ion-label>No todo done yet</ion-label>\n        </ion-item>\n        <ion-item-sliding #item *ngIf="todoDoneList.length > 0" >\n          <ion-item>\n              <ion-checkbox start color="primary" [checked]="todoDone.done" (click)="toggleTodoDone(i)"></ion-checkbox>\n              <ion-label class="done-list-label">{{ todoDone.name }}</ion-label>\n              <ion-label class="done-list-label" end>{{ todoDone.date }}</ion-label>\n          </ion-item>\n          <ion-item-options side="right">\n            <button ion-button color="info" (click)="seeTodoDetails(i, \'todoDoneList\')">View</button>\n            <button ion-button color="danger" (click)="presentAlert(i)">Delete</button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </div>\n    </div>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n        Alick\'s Todo List\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="createTodo()">\n        <ion-icon class="add-todo-icon" slot="icon-only" name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    \n    <!-- Todo list -->\n    <div class="div-list">\n      <ion-label class="todo-list-label-title">Todos list ({{ todoList.length }})</ion-label>\n      <ion-label class="no-todo-label" *ngIf="todoList.length === 0">No todo added yet</ion-label>\n      <div *ngFor="let todo of todoList; let i = index">\n        <ion-item-sliding #item *ngIf="todoList.length > 0" >\n          <ion-item *ngIf="todoList.length > 0">\n            <ion-checkbox start color="primary" [checked]="todo.done" (click)="toggleTodo(i)"></ion-checkbox>\n            <ion-label class="todo-list-label">{{ todo.name }}</ion-label>\n            <ion-label class="todo-list-label" end>{{ todo.date.date }}</ion-label>\n          </ion-item>\n          <ion-item-options side="right">\n            <button ion-button color="info" (click)="seeTodoDetails(i, \'todoList\')">View</button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </div>\n    </div>\n    \n    <br>\n\n    <!-- Done todo list -->\n    <div class="div-list">\n      <ion-label class="done-list-label-title">Done todos list ({{ todoDoneList.length }})</ion-label>\n      <ion-label class="no-todo-label" *ngIf="todoDoneList.length == 0">No todo done yet</ion-label>\n      <div *ngFor="let todoDone of todoDoneList; let i = index" >\n        <ion-item-sliding #item *ngIf="todoDoneList.length > 0" >\n          <ion-item>\n              <ion-checkbox start color="primary" [checked]="todoDone.done" (click)="toggleTodoDone(i)"></ion-checkbox>\n              <ion-label class="done-list-label">{{ todoDone.name }}</ion-label>\n              <ion-label class="done-list-label" end>{{ todoDone.date.date }}</ion-label>\n          </ion-item>\n          <ion-item-options side="right">\n            <button ion-button color="info" (click)="seeTodoDetails(i, \'todoDoneList\')">View</button>\n            <button ion-button color="danger" (click)="presentAlert(i)">Delete</button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </div>\n    </div>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/ratobranco/todo-assessment-app/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__["a" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_storage_storage__["a" /* StorageProvider */],
-            __WEBPACK_IMPORTED_MODULE_6_ionic_angular_components_alert_alert_controller__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__["a" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular_components_modal_modal_controller__["a" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__providers_storage_storage__["a" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_storage_storage__["a" /* StorageProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular_components_alert_alert_controller__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular_components_alert_alert_controller__["a" /* AlertController */]) === "function" && _d || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home.js.map

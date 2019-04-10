@@ -6,13 +6,15 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ todo.name }}</ion-title>
+    <ion-title>Todo Details</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div class="todo-content">
+    <h3>{{ todo.name }}</h3>
     <p>{{ todo.description }}</p>
-    <small>{{ todo.date }}</small>
+    <small>{{ todo.date.date }}</small><br>
+    <small>{{ todo.date.time }}</small>
   </div>
 </ion-content>

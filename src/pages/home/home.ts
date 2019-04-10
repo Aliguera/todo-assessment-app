@@ -118,9 +118,7 @@ export class HomePage {
     } else {
       data = this.todoDoneList[index];
     }
-
     this.navCtrl.push(TodoDetailsPage, {data:data});
-    
   }
 
 }

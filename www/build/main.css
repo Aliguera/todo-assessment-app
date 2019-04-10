@@ -25739,6 +25739,10 @@ page-home ion-item-sliding {
   margin-top: 15px;
 }
 
+page-home .no-todo-label {
+  color: white;
+}
+
 ion-content {
   background-image: url("../../assets/imgs/bg.jpg");
   background-position: center center;
@@ -25752,10 +25756,17 @@ page-todo-details div.todo-content {
   background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
-page-todo-details p {
+page-todo-details p, page-todo-details h3 {
   font-family: arial sans-serif;
-  font-size: 20px !important;
   color: white !important;
+}
+
+page-todo-details p {
+  font-size: 20px !important;
+}
+
+page-todo-details h3 {
+  font-size: 25px !important;
 }
 
 page-todo-details small {

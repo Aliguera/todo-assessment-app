@@ -37,6 +37,11 @@ export class CreateTodoPage {
     let day:any = date.getDate();
     let month:any = date.getMonth() + 1;
 
+    let hours: any = date.getHours();
+    let minutes: any = date.getMinutes();
+
+    let time = hours + ":" + minutes;
+
     if (day < 10) {
       day = '0' + day;
     }
@@ -45,7 +50,7 @@ export class CreateTodoPage {
       month = '0' + month;
     }
 
-    return day + '/' + month + '/' + date.getFullYear();
+    return {date: day + '/' + month + '/' + date.getFullYear(), time: time};
   }
 
 }
