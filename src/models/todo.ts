@@ -3,6 +3,7 @@ export class Todo {
                 public name: string,
                 public description: string,
                 public date: any,
-                public done: boolean
+                public done: boolean,
+                public position: Object
     ) {}
 }

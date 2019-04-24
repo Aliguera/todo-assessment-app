@@ -13,8 +13,9 @@
 <ion-content padding>
   <div class="todo-content">
     <h3>{{ todo.name }}</h3>
-    <p>{{ todo.description }}</p>
-    <small>{{ todo.date.date }}</small><br>
-    <small>{{ todo.date.time }}</small>
+    <p *ngIf="todo.description" >{{ todo.description }}</p>
+    <small *ngIf="todo.date.date" >{{ todo.date.date }}</small><br>
+    <small *ngIf="todo.date.time" >{{ todo.date.time }}</small>
+    <button ion-button block color="primary" *ngIf="todo.position.lat"  (click)="loadGoogleMaps()">Directions</button>
   </div>
 </ion-content>

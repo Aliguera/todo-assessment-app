@@ -15,6 +15,10 @@ import { TodoDetailsPage } from './../pages/todo-details/todo-details';
 //Providers
 import { StorageProvider } from '../providers/storage/storage';
 
+//Native
+import { Geolocation } from '@ionic-native/geolocation';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -38,7 +42,9 @@ import { StorageProvider } from '../providers/storage/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    StorageProvider
+    StorageProvider,
+    Geolocation,
+    LaunchNavigator
   ]
 })
 export class AppModule {}

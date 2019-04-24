@@ -13,10 +13,9 @@
 
 <ion-content padding>
   <ion-list>
-    
     <!-- Todo list -->
     <div class="div-list">
-      <ion-label class="todo-list-label-title">Todos list ({{ todoList.length }})</ion-label>
+      <ion-label class="todo-list-label-title">Todo list ({{ todoList.length }})</ion-label>
       <ion-label class="no-todo-label" *ngIf="todoList.length === 0">No todo added yet</ion-label>
       <div *ngFor="let todo of todoList; let i = index">
         <ion-item-sliding #item *ngIf="todoList.length > 0" >
@@ -36,7 +35,7 @@
 
     <!-- Done todo list -->
     <div class="div-list">
-      <ion-label class="done-list-label-title">Done todos list ({{ todoDoneList.length }})</ion-label>
+      <ion-label class="done-list-label-title">Done todo list ({{ todoDoneList.length }})</ion-label>
       <ion-label class="no-todo-label" *ngIf="todoDoneList.length == 0">No todo done yet</ion-label>
       <div *ngFor="let todoDone of todoDoneList; let i = index" >
         <ion-item-sliding #item *ngIf="todoDoneList.length > 0" >

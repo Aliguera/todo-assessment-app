@@ -8,23 +8,37 @@
   },
   "installed_plugins": {
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "todo.assessment.app"
     },
     "cordova-plugin-ionic-keyboard": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "todo.assessment.app"
     },
     "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "todo.assessment.app"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "todo.assessment.app"
     },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "todo.assessment.app"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "todo.assessment.app"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "todo.assessment.app"
+    },
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+      "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes",
+      "PACKAGE_NAME": "todo.assessment.app"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-actionsheet": {
+      "PACKAGE_NAME": "todo.assessment.app"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "todo.assessment.app"
+    }
+  }
 }

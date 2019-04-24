@@ -19,8 +19,13 @@
     <ion-textarea [(ngModel)]="todo.description" ></ion-textarea>
   </ion-item>
   <ion-item>
-    <ion-label>Todo Date</ion-label>
+    <ion-label>Todo date</ion-label>
     <ion-datetime [(ngModel)]="todo.date" min="2019" max="2100" displayFormat="DD MM YYYY HH:mm"></ion-datetime>
   </ion-item>
+  <ion-row margin-top>
+    <ion-col style="width: 100%; text-align: center">
+      <button ion-button color="secondary" round (click)="getCurrentPosition()">Save your position</button>
+    </ion-col>
+  </ion-row>
   <button (click)="createTodo()" margin-top ion-button full solid color="primary">Submit</button>
 </ion-content>

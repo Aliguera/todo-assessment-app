@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.ionic.starter"
+    package="todo.assessment.app"
     android:hardwareAccelerated="true"
     android:versionCode="1"
     android:versionName="0.0.1" >
@@ -18,6 +18,12 @@
         android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:debuggable="true"
@@ -26,7 +32,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true" >
         <activity
-            android:name="io.ionic.starter.MainActivity"
+            android:name="todo.assessment.app.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
             android:label="@string/activity_name"
             android:launchMode="singleTop"
@@ -38,6 +44,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="launchnavigator.GOOGLE_API_KEY"
+            android:value="AIzaSyBlTq-s5KjLtiW6Y_9PaZih4vCslyABwr8" />
     </application>
 
 </manifest>
